@@ -1,20 +1,108 @@
+/* internet offline */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
-.wrapper{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.popup {
+    position: absolute;
+    left: 50%;
+    top: -25%;
+    visibility: hidden;
+    width: 490px;
+    border-radius: 5px;
+    padding: 13px 17px 20px;
+    background: #fff;
+    display: flex;
+    border-top: 3px solid #EA4D67;
+    transform: translateX(-50%);
+    box-shadow: 0 10px 25px rgba(52, 87, 220, 0.1);
+    transition: all 0.25s ease;
+    z-index: 10;
+}
+
+.popup.show {
+    top: 0;
+    visibility: visible;
+    z-index: 10;
+}
+
+.popup.online {
+    border-color: #2ECC71;
+}
+
+.popup .icon i {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    color: #fff;
+    margin-right: 15px;
+    font-size: 1.2rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #EA4D67;
+}
+
+.popup.online .icon i {
+    background: #2ECC71;
+}
+
+.popup .title {
+    font-size: 1.2rem;
+}
+
+.popup .desc {
+    color: #474747;
+    margin: 3px 0 10px;
+    font-size: 1.04rem;
+}
+
+.popup .reconnect {
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 8px 13px;
+    border-radius: 4px;
+    background: #5372F0;
+}
+
+.popup.online .reconnect {
+    background: #bfbfbf;
+    pointer-events: none;
+}
+
+@media screen and (max-width: 550px) {
+    .popup {
+        width: 100%;
+        padding: 10px 15px 17px;
+    }
+}
+
+.wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
 }
 
-p{
+.newP {
     color: white;
     font-size: 24px;
     position: relative;
     font-family: sans-serif;
     cursor: pointer;
+    margin-top: 16px;
 }
 
-p::before{
+.newP::before {
     content: "";
     position: absolute;
     bottom: -3px;
@@ -28,7 +116,7 @@ p::before{
     transition: transform 0.3s ease;
 }
 
-p:hover::before{
+.newP:hover::before {
     transform: scaleX(1);
     transform-origin: left;
 }
